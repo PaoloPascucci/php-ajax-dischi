@@ -71,6 +71,8 @@ $discs = [
         "year" => "1987",
     ],
 ];
+
+
 ?>
 
 
@@ -81,27 +83,29 @@ $discs = [
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>php ajax Dischi</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    
 </head>
+
 <body>
-      <div class="header">
-      <img src="../assets/Spotify_logo_without_text.svg" alt="logo spotify">
-  </div>
-    <div class="main text-center">
-    <div class="row_ p_3">
-  <div class="L card_ text-center">
-<img src="" alt="">
-<p class="title">{{poster.title}}</p>
-<p class="author">{{poster.author}}</p>
-<p class="year">{{poster.year}}</p>
-  </div>
+<div class="header">
+    <img src="Spotify_logo_without_text.svg" alt="logo spotify">
+</div>
+<div id="app" class="main text-center">  
+<div class="row_ p_3">
+<?php for($i=0; $i<count($discs); $i++) { ?>
+<div class="L card_ text-center">
+<img src="<?= $discs[$i]["poster"];?>" alt="">
+<p class="title"><?= $discs[$i]["title"];?> </p>
+<p class="author"><?= $discs[$i]["author"]; ?> </p>
+<p class="year"><?=$discs[$i]["year"]; ?> </p>
+</div>
+        <?php };?>
     </div>
   </div>
 
-      <script src='https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js'></script>
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js'
+    <script src='https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js'
         integrity='sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw=='
         crossorigin='anonymous' referrerpolicy='no-referrer'></script>
     <script src="./main.js"></script>
